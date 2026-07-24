@@ -6,7 +6,6 @@
     <title>Spark Pro | Dev Studio</title>
     <style>
         :root {
-            /* الألوان الأساسية للهوية البصرية */
             --neon-blue: #00f3ff;
             --neon-purple: #bc13fe;
             --bg-color: #0d0d12;
@@ -30,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* تأثير الإضاءة الخلفية */
         .glow-bg {
             position: fixed;
             top: 50%;
@@ -76,7 +74,6 @@
             margin-bottom: 4rem;
         }
 
-        /* تصميم الأزرار المضيئة */
         .neon-btn {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -124,7 +121,6 @@
             letter-spacing: 1px;
         }
 
-        /* تصميم إطار الموبايل للـ Iframe */
         .phone-frame {
             position: relative;
             margin: 0 auto;
@@ -159,7 +155,6 @@
             background-color: #0d0d12;
         }
 
-        /* تجاوب الموقع مع الشاشات الصغيرة */
         @media (max-width: 500px) {
             .phone-frame {
                 width: 100%;
@@ -181,13 +176,10 @@
         <p>Your ultimate productivity system. Stop wasting hours on manual tasks. Let AI organize your flow while you focus on what matters.</p>
         
         <div class="btn-container">
-            <!-- 1. غيري اسم SparkPro.apk لاسم الملف الفعلي بتاعك لو مختلف -->
             <a href="SparkPro.apk" download="SparkPro.apk" class="neon-btn">
                 Download APK 📲
             </a>
-            
-            <!-- 2. غيري مسار فولدر الـ demo لو مسمياه اسم تاني -->
-            <a href="/lib/SparkPro-website/demo/index.html" target="_blank" class="neon-btn purple">
+            <a href="demo/index.html" target="_blank" class="neon-btn purple">
                 Full Screen Demo 🚀
             </a>
         </div>
@@ -196,8 +188,7 @@
     <section class="demo-section">
         <h2>Live Interactive Demo</h2>
         <div class="phone-frame">
-            <!-- 3. غيري مسار فولدر الـ demo هنا كمان عشان يشتغل جوه إطار الموبايل -->
-            <iframe src="/lib/SparkPro-website/demo/index.html" title="Spark Pro Web Demo"></iframe>
+            <iframe src="demo/index.html" title="Spark Pro Web Demo"></iframe>
         </div>
     </section>
 </body>
