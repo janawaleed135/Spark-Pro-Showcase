@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Pro | Dev Studio</title>
+    <style>
+        :root {
+            /* الألوان الأساسية للهوية البصرية */
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --bg-color: #0d0d12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        /* تأثير الإضاءة الخلفية */
+        .glow-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(188,19,254,0.15) 0%, rgba(0,243,255,0.05) 50%, rgba(13,13,18,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            margin-top: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #a0a0b0;
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.5;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        /* تصميم الأزرار المضيئة */
+        .neon-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2), inset 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        .neon-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6), inset 0 0 15px rgba(0, 243, 255, 0.4);
+        }
+
+        .neon-btn.purple {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 10px rgba(188, 19, 254, 0.2), inset 0 0 10px rgba(188, 19, 254, 0.1);
+        }
+
+        .neon-btn.purple:hover {
+            background: var(--neon-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.6), inset 0 0 15px rgba(188, 19, 254, 0.4);
+        }
+
+        .demo-section {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+
+        .demo-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+            letter-spacing: 1px;
+        }
+
+        /* تصميم إطار الموبايل للـ Iframe */
+        .phone-frame {
+            position: relative;
+            margin: 0 auto;
+            width: 375px;
+            height: 812px;
+            border: 12px solid #1a1a24;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(188,19,254,0.15);
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* النوتش (Notch) أعلى الموبايل */
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background-color: #1a1a24;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #0d0d12;
+        }
+
+        /* تجاوب الموقع مع الشاشات الصغيرة */
+        @media (max-width: 500px) {
+            .phone-frame {
+                width: 100%;
+                max-width: 350px;
+                height: 700px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية الإضاءة -->
+    <div class="glow-bg"></div>
+    
+    <header>
+        <h1>SPARK PRO</h1>
+        <p>Your ultimate productivity system. Stop wasting hours on manual tasks. Let AI organize your flow while you focus on what matters.</p>
+        
+        <div class="btn-container">
+            <!-- 1. غيري اسم SparkPro.apk لاسم الملف الفعلي بتاعك لو مختلف -->
+            <a href="SparkPro.apk" download="SparkPro.apk" class="neon-btn">
+                Download APK 📲
+            </a>
+            
+            <!-- 2. غيري مسار فولدر الـ demo لو مسمياه اسم تاني -->
+            <a href="demo/index.html" target="_blank" class="neon-btn purple">
+                Full Screen Demo 🚀
+            </a>
+        </div>
+    </header>
+
+    <section class="demo-section">
+        <h2>Live Interactive Demo</h2>
+        <div class="phone-frame">
+            <!-- 3. غيري مسار فولدر الـ demo هنا كمان عشان يشتغل جوه إطار الموبايل -->
+            <iframe src="demo/index.html" title="Spark Pro Web Demo"></iframe>
+        </div>
+    </section>
+</body>
+</html>
